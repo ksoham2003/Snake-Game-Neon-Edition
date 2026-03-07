@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game | Neon Edition</title>
+    <meta name="description"
+        content="A visually stunning Snake game with neon aesthetics, GSAP animations, and local high score tracking.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <div class="game-container" id="gameContainer">
+        <header class="game-header">
+            <h1 class="game-title">SNAKE</h1>
+            <div class="score-panel">
+                <div class="score-box">
+                    <span class="score-label">SCORE</span>
+                    <span class="score-value" id="currentScore">0</span>
+                </div>
+                <div class="score-box high-score-box">
+                    <span class="score-label">HIGH SCORE</span>
+                    <span class="score-value" id="highScore">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="canvas-wrapper" id="canvasWrapper">
+            <canvas id="gameCanvas"></canvas>
+            <div class="grid-overlay" id="gridOverlay"></div>
+
+            <div class="overlay" id="startOverlay">
+                <div class="overlay-content">
+                    <h2 class="overlay-title">SNAKE</h2>
+                    <p class="overlay-subtitle">NEON EDITION</p>
+                    <button class="btn-play" id="btnStart">
+                        <span class="btn-icon">▶</span>
+                        <span>PLAY</span>
+                    </button>
+                    <p class="overlay-hint">Use Arrow Keys or WASD to move</p>
+                </div>
+            </div>
+
+            <div class="overlay hidden" id="gameOverOverlay">
+                <div class="overlay-content">
+                    <h2 class="overlay-title game-over-title">GAME OVER</h2>
+                    <div class="final-score-display">
+                        <span class="final-score-label">YOUR SCORE</span>
+                        <span class="final-score-value" id="finalScore">0</span>
+                    </div>
+                    <div class="new-high-score hidden" id="newHighScore">
+                        <span>🏆 NEW HIGH SCORE! 🏆</span>
+                    </div>
+                    <button class="btn-play" id="btnRestart">
+                        <span class="btn-icon">↻</span>
+                        <span>PLAY AGAIN</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="overlay hidden" id="pauseOverlay">
+                <div class="overlay-content">
+                    <h2 class="overlay-title pause-title">PAUSED</h2>
+                    <button class="btn-play" id="btnResume">
+                        <span class="btn-icon">▶</span>
+                        <span>RESUME</span>
+                    </button>
+                    <p class="overlay-hint">Press Space or Escape to resume</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-bar">
+            <button class="control-btn" id="btnPause" title="Pause (Space)">
+                <span id="pauseIcon">⏸</span>
+            </button>
+            <div class="speed-display">
+                <span class="speed-label">LEVEL</span>
+                <span class="speed-value" id="levelDisplay">1</span>
+            </div>
+            <button class="control-btn" id="btnSound" title="Toggle Sound">
+                <span id="soundIcon">🔊</span>
+            </button>
+        </div>
+
+        <div class="mobile-controls" id="mobileControls">
+            <button class="dpad-btn dpad-up" data-dir="up">▲</button>
+            <div class="dpad-middle">
+                <button class="dpad-btn dpad-left" data-dir="left">◀</button>
+                <div class="dpad-center"></div>
+                <button class="dpad-btn dpad-right" data-dir="right">▶</button>
+            </div>
+            <button class="dpad-btn dpad-down" data-dir="down">▼</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
